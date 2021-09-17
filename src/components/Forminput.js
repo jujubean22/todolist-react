@@ -6,10 +6,15 @@ export class Forminput extends Component {
         }
     
     onSubmit = (e) => {
+      if(!this.state.title){
+        alert('input is empty')
+      } else {
       e.preventDefault();
       this.props.addTodo(this.state.title)
       this.setState({ title: ''})
-    }
+    }}
+
+
 
     onChange = (e) => this.setState({ title: e.target.value})
 
@@ -20,6 +25,7 @@ export class Forminput extends Component {
             <input
               type="text" 
               name="title" 
+              autoComplete = 'off'
               style={{ flex: '10', padding: '5px' }}
               placeholder="Add Todo ..." 
               className='inputtodo'
